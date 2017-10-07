@@ -1,0 +1,30 @@
+{
+  "name": "asterism-for-domotics",
+  "version": "0.0.1",
+  "description": "Extensible dashboard platform for domotics. Made in NodeJS, React and Materialize CSS.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test here\" && exit 1",
+    "start": "cross-env NODE_ENV=production node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gxapplications/asterism-for-domotics.git"
+  },
+  "keywords": [
+    "asterism",
+    "domotics",
+    "gridifier"
+  ],
+  "author": "Xavier Gouley <gxapplications@gmail.com>",
+  "license": "CC-BY-NC-SA-4.0",
+  "bugs": {
+    "url": "https://github.com/gxapplications/asterism-for-domotics/issues"
+  },
+  "homepage": "https://github.com/gxapplications/asterism-for-domotics#readme",
+  "dependencies": {
+    "asterism": "^0.2.2",
+    "babel-core": "6.26.0",
+    "cross-env": "5.0.5"
+  }
+}
