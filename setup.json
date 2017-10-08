@@ -1,0 +1,14 @@
+{
+  "authorizedIps": [
+    "127.0.0.1",
+    "0.0.0.0",
+    "::1",
+    "192.168.0.0/24",
+    "192.168.1.0/24"
+  ],
+  "email": "change.me@asterism.net",
+  "domains": [
+    "asterism.me"
+  ],
+  "mode": 3
+}

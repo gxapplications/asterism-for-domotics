@@ -1,30 +1,63 @@
 {
   "name": "asterism-for-domotics",
-  "version": "0.0.1",
+  "version": "0.20.6",
   "description": "Extensible dashboard platform for domotics. Made in NodeJS, React and Materialize CSS.",
+  "author": "Xavier Gouley <gxapplications@gmail.com>",
+  "contributors": [],
+  "license": "CC-BY-NC-SA-4.0",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test here\" && exit 1",
-    "start": "cross-env NODE_ENV=production node index.js"
+    "start": "cross-env NODE_ENV=production node index.js",
+    "setup": "npm install --production --quiet && npm run setup:build && npm run setup:mode && npm run start",
+    "update": "npm update --production --quiet && npm run setup:build && npm run start",
+    "setup:build": "cross-env NODE_ENV=production node setup-build.js",
+    "setup:mode": "cross-env NODE_ENV=production node setup-mode.js",
+    "gen:cert": "./setup-self-signed-certificates.sh"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gxapplications/asterism-for-domotics.git"
+    "url": "https://github.com/gxapplications/asterism-for-domotics"
   },
-  "keywords": [
-    "asterism",
-    "domotics",
-    "gridifier"
-  ],
-  "author": "Xavier Gouley <gxapplications@gmail.com>",
-  "license": "CC-BY-NC-SA-4.0",
   "bugs": {
-    "url": "https://github.com/gxapplications/asterism-for-domotics/issues"
+    "url": "https://github.com/gxapplications/asterism/issues"
   },
-  "homepage": "https://github.com/gxapplications/asterism-for-domotics#readme",
+  "homepage": "https://github.com/gxapplications/asterism-for-domotics",
+  "keywords": [
+    "gridifier",
+    "react",
+    "material",
+    "asterism",
+    "domotics"
+  ],
+  "engines": {
+    "node": ">= 8.0.0",
+    "npm": ">= 5.0.0"
+  },
   "dependencies": {
-    "asterism": "^0.2.2",
-    "babel-core": "6.26.0",
-    "cross-env": "5.0.5"
-  }
+    "asterism": "^0.20.6",
+    "asterism-plugin-ipcam": "^1.4.2",
+    "asterism-plugin-library": ">= 1.12.3",
+    "asterism-plugin-zwave": "^0.8.15",
+    "babel-core": "6.26.x",
+    "colors": "1.1.x",
+    "cross-env": "^5.x",
+    "exec-sh": "0.3.x",
+    "greenlock-express": "2.4.x",
+    "le-acme-core": "2.1.x",
+    "prompt-sync": "4.1.x",
+    "ursa": "0.9.x"
+  },
+  "bundledDependencies": [
+    "asterism",
+    "asterism-plugin-ipcam",
+    "asterism-plugin-library",
+    "asterism-plugin-zwave"
+  ],
+  "asterism-plugins": [
+    "asterism/dist/plugins/scenarii",
+    "asterism/dist/plugins/navigation-tools",
+    "asterism-plugin-ipcam",
+    "asterism-plugin-zwave"
+  ]
 }
