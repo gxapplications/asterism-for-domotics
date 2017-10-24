@@ -17,6 +17,12 @@ npm install --production
 This will install without development/test dependencies (will use less disk space). This will install more than 1090 dependencies in about 5 to 15 minutes.
 
 ```
+HOST=<your-host-name> npm run gen:cert
+```
+Optional: This will generate a new SSL certificate, needed for HTTPS service (to have speech recognition working for example).
+As your domotics server should be local only, auto-generated cert is sufficient, but you will need to install the certificate on your devices (browsers).
+
+```
 npm start
 ```
 You can start it for test. You should use PM2 for production (for auto-restart, log management, ...)
@@ -67,3 +73,11 @@ And follow the instructions.
 For more details about PM2, see [http://pm2.keymetrics.io/docs](http://pm2.keymetrics.io/docs/usage/quick-start/)
 
 **Warning: _asterism_ server is statefull: do NOT use multiple instances/cluster (no load balancing available)**
+
+
+# Update it from PM2
+
+```
+pm2 pull asterism
+```
+This will stop the service, update it from Github, and the update dependencies and restart the process. This can take several minutes!
