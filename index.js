@@ -13,7 +13,7 @@ server.use(require('asterism-plugin-ipcam'))
 server.use(require('asterism-plugin-zwave'))
 
 // Start server
-server.start(9000, ['127.0.0.1', '0.0.0.0', '::1', '192.168.0/24', '192.168.1/24'], function () {
+server.start(9000, ['127.0.0.1', '0.0.0.0', '::1', '192.168.0.0/24', '192.168.1.0/24'], function () {
   console.log('Asterism for domotics running on localhost, ports 9080/9443, available from local network!'.green)
   if (process && process.send) {
     process.send('ready')
