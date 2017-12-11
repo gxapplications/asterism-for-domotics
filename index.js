@@ -9,6 +9,8 @@ console.log(('Asterism for domotics release '+release).cyan)
 const server = require('asterism').server
 
 // Plugins
+server.use(require('asterism/dist/plugins/scenarii'))
+server.use(require('asterism/dist/plugins/navigation-tools'))
 server.use(require('asterism-plugin-ipcam'))
 server.use(require('asterism-plugin-zwave'))
 
