@@ -13,6 +13,7 @@ This will clone the project. You can modify your settings (used plugins) in the 
 
 ```
 npm install --production
+npm run gen:build
 ```
 This will install without development/test dependencies (will use less disk space). This will install more than 1090 dependencies in about 5 to 15 minutes.
 
@@ -32,6 +33,7 @@ You can start it for test. You should use PM2 for production (for auto-restart, 
 
 ```
 npm update --production
+npm run gen:build
 npm start
 ```
 
@@ -48,10 +50,16 @@ npm install -g pm2
 pm2 install pm2-logrotate
 ```
 
+- To generate webpack files (only the first time):
+```
+npm run gen:build
+```
+
 - Install and save PM2 ecosystem for _asterism-for-domotics_:
 ```
 pm2 start pm2.config.js
 ```
+This will automatically start asterism process.
 
 - Check installation:
 ```
@@ -70,6 +78,7 @@ pm2 startup
 ```
 And follow the instructions.
 
+
 For more details about PM2, see [http://pm2.keymetrics.io/docs](http://pm2.keymetrics.io/docs/usage/quick-start/)
 
 **Warning: _asterism_ server is statefull: do NOT use multiple instances/cluster (no load balancing available)**
@@ -80,4 +89,5 @@ For more details about PM2, see [http://pm2.keymetrics.io/docs](http://pm2.keyme
 ```
 pm2 pull asterism
 ```
-This will stop the service, update it from Github, and the update dependencies and restart the process. This can take several minutes!
+This stops the service, updates it from Github, updates dependencies, build webpack files, and then restart the process. This can take several minutes!
+TODO : test if this line is done:  post_update: ["npm install", "npm run gen:build"]
