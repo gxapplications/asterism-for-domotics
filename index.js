@@ -4,15 +4,17 @@
 require('babel-core/register')
 require('colors')
 
-const release = require('./package.json').version
+const packageData = require('./package.json')
+const release = packageData.version
 console.log(('Asterism for domotics release '+release).cyan)
+
 const server = require('asterism').server
 
 // Plugins
-server.use(require('asterism/dist/plugins/scenarii'))
-server.use(require('asterism/dist/plugins/navigation-tools'))
-server.use(require('asterism-plugin-ipcam'))
-server.use(require('asterism-plugin-zwave'))
+const plugins = packageData['asterism-plugins']
+for (let plugin of plugins) {
+  server.use(require(plugin))
+}
 
 // Start server
 server.start(9000, ['127.0.0.1', '0.0.0.0', '::1', '192.168.0.0/24', '192.168.1.0/24'], function () {
