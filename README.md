@@ -4,6 +4,13 @@ _Extensible dashboard platform for domotics. Made in NodeJS, React and Materiali
 
 ### _asterism-for-domotics_ is an application to let you build your dashboard to control/monitor everything you want as long as there is a module for that.
 
+
+# Prerequisites
+
+As this package uses plugins that need specific settings before installation (third part softs prerequisites), you need to complete these steps first of all:
+- (Zwave open-zwave library)[https://github.com/gxapplications/asterism-plugin-zwave/blob/master/README.md#asterism-plugin-zwave]
+
+
 # Quick install guide
 
 ```
