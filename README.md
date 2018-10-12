@@ -8,7 +8,7 @@ _Extensible dashboard platform for domotics. Made in NodeJS, React and Materiali
 # Prerequisites
 
 As this package uses plugins that need specific settings before installation (third part softs prerequisites), you need to complete these steps first of all:
-- (Zwave open-zwave library)[https://github.com/gxapplications/asterism-plugin-zwave/blob/master/README.md#asterism-plugin-zwave]
+- [Zwave open-zwave library](https://github.com/gxapplications/asterism-plugin-zwave/blob/master/README.md#asterism-plugin-zwave)
 
 
 # Quick install guide
@@ -19,33 +19,29 @@ git clone https://www.github.com/gxapplications/asterism-for-domotics.git
 This will clone the project. You can modify your settings (used plugins) in the index.js if you want different plugins. Do it before npm install!
 
 ```
-npm install --production
-npm run gen:build
+npm run setup
 ```
-This will install without development/test dependencies (will use less disk space). This will install more than 1090 dependencies in about 5 to 15 minutes.
-
-```
-HOST=<your-host-name> npm run gen:cert
-```
-Optional: This will generate a new SSL certificate, needed for HTTPS service (to have speech recognition working for example).
-As your domotics server should be local only, auto-generated cert is sufficient, but you will need to install the certificate on your devices (browsers).
+This will install without development/test dependencies (will use less disk space). This will install more than 1100 dependencies in about 5 to 15 minutes.
+A build is done just after (using webpack) to compile asterism and selected plugins (can take several minutes).
+And then a choice can be made: either to use local HTTP / local self signed HTTPS / full public HTTPS with your own domain name.
 
 ```
 npm start
 ```
 You can start it for test. You should use PM2 for production (for auto-restart, log management, ...)
+Server will start after setup automatically. But you can restart it directly with this.
 
 
 # Update guide
 
 ```
-npm update --production
-npm run gen:build
-npm start
+npm run update
 ```
 
 
 # Install on PM2
+
+After playing setup process (npm run setup), you can use PM2 to have a serious production exploitation.
 
 - Install PM2 globally, from npm. Root privileges may be required:
 ```
@@ -55,11 +51,6 @@ npm install -g pm2
 - Optionally install PM2 log-rotate plugin:
 ```
 pm2 install pm2-logrotate
-```
-
-- To generate webpack files (only the first time):
-```
-npm run gen:build
 ```
 
 - Install and save PM2 ecosystem for _asterism-for-domotics_:

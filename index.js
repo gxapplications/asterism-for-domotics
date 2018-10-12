@@ -8,6 +8,12 @@ const packageData = require('./package.json')
 const release = packageData.version
 console.log(('Asterism for domotics release '+release).cyan)
 
+const setupData = require('./setup.json')
+const portOffset = setupData.mode === 3 ? 0 : 9000
+const modeLog = (setupData.mode === 3) ?
+  'Asterism for domotics running on Internet, ports 80/443, available to the entire world!'.yellow :
+  'Asterism for domotics running on localhost, ports 9080/9443, available from local network!'.green
+
 const server = require('asterism').server
 
 // Plugins
@@ -17,12 +23,17 @@ for (let plugin of plugins) {
 }
 
 // Start server
-server.start(9000, ['127.0.0.1', '0.0.0.0', '::1', '192.168.0.0/24', '192.168.1.0/24'], function () {
-  console.log('Asterism for domotics running on localhost, ports 9080/9443, available from local network!'.green)
-  if (process && process.send) {
-    process.send('ready')
-  }
-})
+server.start(
+  portOffset,
+  setupData.authorizedIps || ['127.0.0.1', '0.0.0.0', '::1', '192.168.0.0/24', '192.168.1.0/24'],
+  function () {
+    console.log(modeLog)
+    if (process && process.send) {
+     process.send('ready')
+    }
+  },
+  (setupData.mode === 3) ? require('./greenlock')(setupData, server.express) : null
+)
 
 // Linux graceful stop
 process.on('SIGINT', function () {

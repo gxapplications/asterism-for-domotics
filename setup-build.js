@@ -6,7 +6,7 @@ require('colors')
 
 const packageData = require('./package.json')
 const release = packageData.version
-console.log(('Asterism for domotics release '+release).cyan)
+console.log(('Asterism for domotics release '+release+' will now build!').cyan)
 
 const asterism = require('asterism')
 const server = asterism.server
@@ -20,4 +20,5 @@ for (let plugin of plugins) {
 
 browser.pack(server, true, () => {
   console.log(('Build OK: Webpack files generated').cyan)
+  process.exit(0)
 })

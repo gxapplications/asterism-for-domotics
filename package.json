@@ -1,6 +1,6 @@
 {
   "name": "asterism-for-domotics",
-  "version": "0.20.1",
+  "version": "0.20.2",
   "description": "Extensible dashboard platform for domotics. Made in NodeJS, React and Materialize CSS.",
   "author": "Xavier Gouley <gxapplications@gmail.com>",
   "contributors": [],
@@ -9,8 +9,11 @@
   "scripts": {
     "test": "echo \"Error: no test here\" && exit 1",
     "start": "cross-env NODE_ENV=production node index.js",
-    "gen:build": "cross-env NODE_ENV=production node build.js",
-    "gen:cert": "./generate-certificates.sh"
+    "setup": "npm install --production --quiet && npm run setup:build && npm run setup:mode && npm run start",
+    "update": "npm update --production --quiet && npm run setup:build && npm run start",
+    "setup:build": "cross-env NODE_ENV=production node setup-build.js",
+    "setup:mode": "cross-env NODE_ENV=production node setup-mode.js",
+    "gen:cert": "./setup-self-signed-certificates.sh"
   },
   "repository": {
     "type": "git",
@@ -32,13 +35,18 @@
     "npm": ">= 3.10.8"
   },
   "dependencies": {
-    "asterism": "^0.20.1",
+    "asterism": "^0.20.3",
     "asterism-plugin-ipcam": "^1.4.2",
     "asterism-plugin-library": ">= 1.12.0",
     "asterism-plugin-zwave": "^0.8.11",
     "babel-core": "6.26.x",
     "colors": "1.1.x",
-    "cross-env": "^5.x"
+    "cross-env": "^5.x",
+    "exec-sh": "0.3.x",
+    "greenlock-express": "2.4.x",
+    "le-acme-core": "2.1.x",
+    "prompt-sync": "4.1.x",
+    "ursa": "0.9.x"
   },
   "bundledDependencies": [
     "asterism",
