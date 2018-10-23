@@ -76,8 +76,6 @@ switch (mode) {
 
     // WRITE SETUP
     writeSetupAndQuit()
-
-    // TODO: npmjs.com/package/greenlock-express to take in place in index.js !
     break
 
   default: // HTTP ONLY

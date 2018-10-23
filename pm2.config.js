@@ -17,7 +17,7 @@ module.exports = {
       max_memory_restart : "1000M", // if uses more than 1000MB, consider it's a bug. Crash the instance and retry.
       restart_delay      : 5000, // Wait 5 sec before to restart after a crash
       autorestart        : true,
-      post_update        : ["npm install", "npm run gen:build"]
+      post_update        : ["npm run update"]
     }
   ]
 }

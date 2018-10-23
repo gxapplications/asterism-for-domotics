@@ -4,8 +4,6 @@ module.exports = (setupData, app) => {
 
     // My User / Domain Database
     const fooCheckDb = (opts, cb) => {
-        // This is an oversimplified example of how we might implement a check in
-        // our database if we have different rules for different users and domains
         var domains = setupData.domains
         var userEmail = setupData.email
         var userAgrees = true
@@ -56,7 +54,6 @@ module.exports = (setupData, app) => {
 
 
     return require('greenlock-express').create({
-        // Let's Encrypt v2 is ACME draft 11
         // Note: If at first you don't succeed, stop and switch to staging
         // https://acme-staging-v02.api.letsencrypt.org/directory
         server: 'https://acme-v02.api.letsencrypt.org/directory',
@@ -75,8 +72,6 @@ module.exports = (setupData, app) => {
         approveDomains: approveDomains,
 
         app,
-
-        // Get notified of important updates and help me make greenlock better
         communityMember: false,
         debug: false
     })

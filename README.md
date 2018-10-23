@@ -16,7 +16,7 @@ As this package uses plugins that need specific settings before installation (th
 ```
 git clone https://www.github.com/gxapplications/asterism-for-domotics.git
 ```
-This will clone the project. You can modify your settings (used plugins) in the index.js if you want different plugins. Do it before npm install!
+This will clone the project. You can modify your settings (used plugins) in the index.js if you want different plugins. Do it before setup step!
 
 ```
 npm run setup
@@ -88,4 +88,4 @@ For more details about PM2, see [http://pm2.keymetrics.io/docs](http://pm2.keyme
 pm2 pull asterism
 ```
 This stops the service, updates it from Github, updates dependencies, build webpack files, and then restart the process. This can take several minutes!
-TODO : test if this line is done:  post_update: ["npm install", "npm run gen:build"]
+TODO : test if this line is done:  post_update: ["npm run update"]
