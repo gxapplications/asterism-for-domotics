@@ -1,14 +1,37 @@
 ![asterism-logo](https://raw.githubusercontent.com/gxapplications/asterism/master/doc/asterism-text.png)
 
-_Extensible dashboard platform for domotics. Made in NodeJS, React and Materialize CSS._
+### _asterism-for-domotics_ is a Domotics oriented standalone software, based on _asterism_.
 
-### _asterism-for-domotics_ is an application to let you build your dashboard to control/monitor everything you want as long as there is a module for that.
+_NOT cloud based (local & private service). Made in NodeJS & Material interface._
 
+---
+
+[![release date](https://img.shields.io/github/release-date/gxapplications/asterism-for-domotics.svg)](https://github.com/gxapplications/asterism-for-domotics/releases)
+![node version](https://img.shields.io/badge/node-%3E%3D%208.9.4-pink.svg)
+[![npm package version](https://badge.fury.io/js/asterism-for-domotics.svg?logo=npm)](https://www.npmjs.com/package/asterism-for-domotics)
+[![npm downloads](https://img.shields.io/npm/dt/asterism-for-domotics.svg?logo=npm&label=npm%20downloads)](https://www.npmjs.com/package/asterism-for-domotics)
+[![github downloads](https://img.shields.io/github/downloads/gxapplications/asterism-for-domotics/total.svg?logo=github&label=github%20downloads)](https://github.com/gxapplications/asterism-for-domotics/releases)
+
+Plugins versions:
+[![asterism dep version](https://img.shields.io/npm/dependency-version/asterism-for-domotics/asterism.svg)](https://www.npmjs.com/package/asterism)
+[![lib dep version](https://img.shields.io/npm/dependency-version/asterism-for-domotics/asterism-plugin-library.svg)](https://www.npmjs.com/package/asterism-plugin-library)
+[![asterism-plugin-zwave dep version](https://img.shields.io/npm/dependency-version/asterism-for-domotics/asterism-plugin-zwave.svg)](https://www.npmjs.com/package/asterism-plugin-zwave)
+[![asterism-plugin-ipcam dep version](https://img.shields.io/npm/dependency-version/asterism-for-domotics/asterism-plugin-ipcam.svg)](https://www.npmjs.com/package/asterism-plugin-ipcam)
+
+_[Roadmap available here (asterism and plugins)](https://github.com/gxapplications/asterism/milestones?direction=asc&sort=due_date&state=open)_
+
+---
 
 # Prerequisites
 
+- A private server remaining ON to run the background application (Linux like), reachable in a protected network area only (public version with authentication will come later),
+- One or more clients to display and control the dashboard via a Chrome browser (tablet, computer, mobile phone...).
+- Server part is not compatible with Microsoft Windows OS. Web part is compatible with Google Chrome & Chromium only, >= 71.
+
+
 As this package uses plugins that need specific settings before installation (third part softs prerequisites), you need to complete these steps first of all:
-- [Zwave open-zwave library](https://github.com/gxapplications/asterism-plugin-zwave/blob/master/README.md#asterism-plugin-zwave)
+
+- [Zwave open-zwave library](https://github.com/gxapplications/asterism-plugin-zwave/blob/master/README.md#asterism-plugin-zwave) (skip if you don't need it)
 
 
 # Quick install guide
@@ -89,3 +112,12 @@ pm2 pull asterism
 ```
 This stops the service, updates it from Github, updates dependencies, build webpack files, and then restart the process. This can take several minutes!
 TODO : test if this line is done:  post_update: ["npm run update"]
+
+---
+
+
+# Project under beta testing development
+_asterism_ is for now in public testing stage, for 2019. You are welcome to use it and test it.
+Stable release is scheduled for 2020.
+
+:copyright: 2017-2019 GXApplications. [ [Roadmap/Milestones](https://github.com/gxapplications/asterism/milestones?direction=asc&sort=due_date&state=open) | [License](https://github.com/gxapplications/asterism-for-domotics/blob/master/LICENSE.md) ]
