@@ -35,7 +35,7 @@
     "npm": ">= 5.6.0"
   },
   "dependencies": {
-    "asterism": "^1.0.0",
+    "asterism": "^1.0.1",
     "asterism-plugin-ftt": "^0.1.2",
     "asterism-plugin-ipcam": "^1.5.0",
     "asterism-plugin-library": ">= 2.0.0",
