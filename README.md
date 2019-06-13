@@ -1,6 +1,6 @@
 ![asterism-logo](https://raw.githubusercontent.com/gxapplications/asterism/master/doc/asterism-text.png)
 
-### _asterism-for-domotics_ is a Domotics oriented standalone software, based on _asterism_.
+### _asterism-for-domotics_ is a Domotics oriented standalone software, based on _asterism_ framework.
 
 _NOT cloud based (local & private service). Made in NodeJS & Material interface._
 
