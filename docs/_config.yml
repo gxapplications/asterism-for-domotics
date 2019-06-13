@@ -1,0 +1,3 @@
+theme: jekyll-theme-midnight
+title: asterism for domotics
+description: Domotics oriented standalone software. Made in NodeJS & Material interface. NOT cloud based. Built for PM2.

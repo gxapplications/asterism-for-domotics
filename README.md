@@ -1,6 +1,6 @@
 ![asterism-logo](https://raw.githubusercontent.com/gxapplications/asterism/master/doc/asterism-text.png)
 
-### _asterism-for-domotics_ is a Domotics oriented standalone software, based on _asterism_.
+### _asterism-for-domotics_ is a Domotics oriented standalone software, based on _asterism_ framework.
 
 _NOT cloud based (local & private service). Made in NodeJS & Material interface._
 
@@ -18,7 +18,7 @@ Plugins versions:
 [![asterism-plugin-zwave dep version](https://img.shields.io/npm/dependency-version/asterism-for-domotics/asterism-plugin-zwave.svg)](https://www.npmjs.com/package/asterism-plugin-zwave)
 [![asterism-plugin-ipcam dep version](https://img.shields.io/npm/dependency-version/asterism-for-domotics/asterism-plugin-ipcam.svg)](https://www.npmjs.com/package/asterism-plugin-ipcam)
 
-_[Roadmap available here (asterism and plugins)](https://github.com/gxapplications/asterism/milestones?direction=asc&sort=due_date&state=open)_
+_[Development progression / Roadmap available here (asterism and plugins)](https://github.com/users/gxapplications/projects/1)_
 
 ---
 
