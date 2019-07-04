@@ -6,9 +6,10 @@
     "192.168.0.0/24",
     "192.168.1.0/24"
   ],
-  "email": "change.me@asterism.net",
+  "email": "change.me@example.net",
   "domains": [
-    "asterism.me"
+    "example.net",
+    "www.example.net"
   ],
   "mode": 3
 }

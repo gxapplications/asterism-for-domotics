@@ -1,20 +1,19 @@
 'use strict'
 
-module.exports = (setupData, app) => {
+const path = require('path')
+
+module.exports = (setupData, app, debug = true) => {
 
     // My User / Domain Database
-    const fooCheckDb = (opts, cb) => {
-        var domains = setupData.domains
-        var userEmail = setupData.email
-        var userAgrees = true
-        var passCheck = opts.domains.every(function (domain) {
-            return -1 !== domains.indexOf(domain)
+    const checkDb = (opts, cb) => {
+        const passCheck = opts.domains.every(function (domain) {
+            return -1 !== setupData.domains.indexOf(domain)
         })
 
         if (!passCheck) {
-            cb(new Error('domain not allowed'))
+            cb(new Error('Domain not allowed!'))
         } else {
-            cb(null, userAgrees, userEmail)
+            cb(null, true, setupData.email)
         }
     }
 
@@ -31,9 +30,11 @@ module.exports = (setupData, app) => {
         // Only one domain is listed with *automatic* registration via SNI
         // (it's an array because managed registration allows for multiple domains,
         // which was the case in the simple example)
-        console.log(opts.domains)
+        if (debug) {
+            console.log(opts.domains)
+        }
 
-        fooCheckDb(opts, function (err, agree, email) {
+        checkDb(opts, function (err, agree, email) {
             if (err) {
                 cb(err)
                 return
@@ -43,36 +44,34 @@ module.exports = (setupData, app) => {
             opts.agreeTos = agree
             opts.email = email
 
-            // NOTE: you can also change other options such as `challengeType` and `challenge`
-            // (this would be helpful if you decided you wanted wildcard support as a domain altname)
-            // opts.challengeType = 'http-01';
-            // opts.challenge = require('le-challenge-fs').create({});
+            if (!opts.challenges) {
+                opts.challenges = {}
+            }
+            opts.challenges["http-01"] = require("le-challenge-fs").create({
+                webrootPath: path.join(__dirname, 'var', 'acme-challenge'),
+                debug
+            });
+            opts.challengeTypes = ['http-01'];
 
             cb(null, { options: opts, certs: certs })
         });
     }
 
-
     return require('greenlock-express').create({
-        // Note: If at first you don't succeed, stop and switch to staging
-        // https://acme-staging-v02.api.letsencrypt.org/directory
-        server: 'https://acme-v02.api.letsencrypt.org/directory',
+        // If at first you don't succeed, stop and switch to staging / debug mode
+        server: debug ? 'https://acme-staging-v02.api.letsencrypt.org/directory' : 'https://acme-v02.api.letsencrypt.org/directory',
         version: 'draft-11',
 
         // You MUST have write access to save certs
-        configDir: './var',
+        configDir: '~/acme-challenge/',
 
-        // The previous 'simple' example set these values statically,
-        // but this example uses approveDomains() to set them dynamically
         // email: 'none@see.note.above',
         // agreeTos: false,
-
-        // approveDomains is the right place to check a database for
-        // email addresses with domains and agreements and such
         approveDomains: approveDomains,
 
         app,
+        store: require('greenlock-store-fs'),
         communityMember: false,
-        debug: false
+        debug
     })
 }
