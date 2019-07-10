@@ -116,6 +116,13 @@ TODO : test if this line is done:  post_update: ["npm run update"]
 ---
 
 
+# Troubleshooting
+
+Allow a Raspberry Pi to use port 80 (without sudo at startup)
+```
+sudo setcap 'cap_net_bind_service=+ep' $(which node)
+```
+
 # Project under beta testing development
 _asterism_ is for now in public testing stage, for 2019. You are welcome to use it and test it.
 Stable release is scheduled for 2020.

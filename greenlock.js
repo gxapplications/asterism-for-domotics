@@ -72,6 +72,8 @@ module.exports = (setupData, app) => {
         approveDomains: approveDomains,
 
         app,
+        store: require('greenlock-store-fs'),
+
         communityMember: false,
         debug: false
     })

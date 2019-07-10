@@ -44,7 +44,8 @@
     "colors": "1.1.x",
     "cross-env": "^5.x",
     "exec-sh": "0.3.x",
-    "greenlock-express": "2.4.x",
+    "greenlock-express": "2.x",
+    "greenlock-store-fs": "3.x",
     "le-acme-core": "2.1.x",
     "prompt-sync": "4.1.x",
     "ursa": "0.9.x"
