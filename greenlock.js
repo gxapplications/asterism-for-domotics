@@ -43,6 +43,12 @@ module.exports = (setupData, app) => {
             opts.agreeTos = agree
             opts.email = email
 
+            if (!opts.challenges) {
+                opts.challenges = {};
+            }
+            opts.challenges["http-01"] = require("le-challenge-fs").create({});
+            opts.challenges["dns-01"] = require("le-challenge-dns").create({});
+
             // NOTE: you can also change other options such as `challengeType` and `challenge`
             // (this would be helpful if you decided you wanted wildcard support as a domain altname)
             // opts.challengeType = 'http-01';

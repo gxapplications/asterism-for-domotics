@@ -47,6 +47,8 @@
     "greenlock-express": "2.x",
     "greenlock-store-fs": "3.x",
     "le-acme-core": "2.1.x",
+    "le-challenge-dns": "^3.0.7",
+    "le-challenge-fs": "^2.0.9",
     "prompt-sync": "4.1.x",
     "ursa": "0.9.x"
   },
