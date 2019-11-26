@@ -32,7 +32,7 @@ server.start(
      process.send('ready')
     }
   },
-  (setupData.mode === 3) ? require('./greenlock')(setupData, server.express) : null
+  (setupData.mode === 3) ? require('./greenlock-server')(setupData, server.express) : null
 )
 
 // Linux graceful stop

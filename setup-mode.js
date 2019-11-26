@@ -2,6 +2,7 @@
 
 /* global process */
 require('colors')
+const execSh = require('exec-sh')
 const fs = require('fs')
 const prompt = require('prompt-sync')({ sigint: true })
 
@@ -50,7 +51,6 @@ switch (mode) {
       host = prompt(`Please enter certificate host/IP: `, '')
     } while(!(host.length > 0))
 
-    const execSh = require('exec-sh')
     execSh(`HOST=${host} EMAIL=${email} ./setup-self-signed-certificates.sh`, { cwd: './' }, (err) => {
       if (err) {
         console.error('ERROR:', err)
@@ -74,8 +74,23 @@ switch (mode) {
       )
     } while(!(domains.length > 0))
 
-    // WRITE SETUP
-    writeSetupAndQuit()
+    // TODO !0: to test
+    execSh(`npx greenlock defaults --subscriber-email '${email}' --agree-to-terms`, { cwd: './' }, (err2) => {
+      if (err2) {
+        console.error('ERROR:', err2)
+        process.exit(1)
+      }
+
+      execSh(`npx greenlock add --subject ${domains[0]} --altnames ${domains.join(',')}`, { cwd: './' }, (err3) => {
+        if (err3) {
+          console.error('ERROR:', err3)
+          process.exit(1)
+        }
+
+        // WRITE SETUP
+        writeSetupAndQuit()
+      })
+    })
     break
 
   default: // HTTP ONLY
