@@ -48,9 +48,18 @@ This will install without development/test dependencies (will use less disk spac
 A build is done just after (using webpack) to compile asterism and selected plugins (can take several minutes).
 And then a choice can be made: either to use local HTTP / local self signed HTTPS / full public HTTPS with your own domain name.
 
+In the two first choices case, just launch the server to test it:
 ```
 npm start
 ```
+
+In the last choice case, we use Greenlock to generate SSL certificates, and then we need some extra configuration before to start:
+# TODO !0: les commandes suivantes peuvent etre faites par le setup, puisqu'on a les emails, domaines, etc....
+```
+sudo setcap 'cap_net_bind_service=+ep' $(which node)
+npm start -- --staging
+```
+
 You can start it for test. You should use PM2 for production (for auto-restart, log management, ...)
 Server will start after setup automatically. But you can restart it directly with this.
 
@@ -87,18 +96,20 @@ This will automatically start asterism process.
 pm2 ls
 ```
 
+- To auto-start PM2 at OS boot:
+```
+pm2 startup
+```
+And follow the instructions, then after launching asterism service, save its startup configuration using:
+```
+pm2 save
+```
+
 - To start & stop _asterism_:
 ```
 pm2 start asterism
 pm2 stop asterism
 ```
-
-- To auto-start PM2 at OS boot:
-```
-pm2 startup
-```
-And follow the instructions.
-
 
 For more details about PM2, see [http://pm2.keymetrics.io/docs](http://pm2.keymetrics.io/docs/usage/quick-start/)
 
