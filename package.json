@@ -1,6 +1,6 @@
 {
   "name": "asterism-for-domotics",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "description": "Extensible dashboard platform for domotics. Made in NodeJS, React and Materialize CSS.",
   "author": "Xavier Gouley <gxapplications@gmail.com>",
   "contributors": [],
@@ -35,11 +35,11 @@
     "npm": ">= 6.4.1"
   },
   "dependencies": {
-    "asterism": "^1.1.6",
+    "asterism": "^1.1.8",
     "asterism-plugin-ftt": "^0.1.4",
     "asterism-plugin-ipcam": "^1.5.1",
-    "asterism-plugin-library": ">= 2.2.32",
-    "asterism-plugin-zwave": "^1.0.8",
+    "asterism-plugin-library": ">= 2.2.33",
+    "asterism-plugin-zwave": "^1.0.10",
     "babel-core": "6.26.x",
     "colors": "1.1.x",
     "cross-env": "^5.x",
