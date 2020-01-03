@@ -5,22 +5,37 @@ require('colors')
 const execSh = require('exec-sh')
 const fs = require('fs')
 const prompt = require('prompt-sync')({ sigint: true })
+const webPush = require('web-push')
 
 const setup = require('./setup.json')
 let mode = setup.mode || 1
 let authorizedIps = setup.authorizedIps || ['127.0.0.1', '0.0.0.0', '::1', '192.168.0.0/24', '192.168.1.0/24']
 let email = setup.email || null
 let domains = setup.domains || []
+let webPushPublicKey = setup.webPushPublicKey || null
+let webPushPrivateKey = setup.webPushPrivateKey || null
+let timezone = setup.timezone || 'Europe/Paris'
 
-const writeSetupAndQuit = () => {
+const writeSetupAndQuit = (withWebPush = false) => {
   setup.mode = mode
   setup.authorizedIps = authorizedIps
   setup.email = email
   setup.domains = domains
+  if (withWebPush && webPushPublicKey === null && webPushPrivateKey === null) {
+    const keys = webPush.generateVAPIDKeys()
+    setup.webPushPublicKey = keys.publicKey
+    setup.webPushPrivateKey = keys.privateKey
+    console.log('Wrote new webPush VAPID keys on your setup conf.'.green)
+  }
   fs.writeFile('./setup.json', JSON.stringify(setup, null, 2), 'utf8', () => {
     process.exit(0)
   })
 }
+
+// TIMEZONE
+do {
+  timezone = prompt(`Please enter your timezone [default ${setup.timezone || 'Europe/Paris'}]: `, setup.timezone)
+} while(!(timezone.length > 0))
 
 // MODE
 console.log('Now, you must choose a way to execute asterism.'.yellow)
@@ -58,7 +73,7 @@ switch (mode) {
       }
 
       // WRITE SETUP
-      writeSetupAndQuit()
+      writeSetupAndQuit(true)
     })
     break
 
@@ -74,7 +89,6 @@ switch (mode) {
       )
     } while(!(domains.length > 0))
 
-    // TODO !0: to test
     execSh(`npx greenlock defaults --subscriber-email '${email}' --agree-to-terms`, { cwd: './' }, (err2) => {
       if (err2) {
         console.error('ERROR:', err2)
@@ -88,7 +102,7 @@ switch (mode) {
         }
 
         // WRITE SETUP
-        writeSetupAndQuit()
+        writeSetupAndQuit(true)
       })
     })
     break
@@ -97,5 +111,5 @@ switch (mode) {
     // nothing for now...
 
     // WRITE SETUP
-    writeSetupAndQuit()
+    writeSetupAndQuit(false)
 }

@@ -7,14 +7,9 @@ module.exports = (setupData, app, debug = true) => {
         require("greenlock-express")
         .init(() => {
             return {
-                greenlock: require("@root/greenlock").create({
-                    packageAgent: pkg.name + "/" + pkg.version, // name & version for ACME client user agent
-                    maintainerEmail: pkg.author, // contact for security and critical bug notices
-                    packageRoot: __dirname // where to find .greenlockrc and set default paths
-                }),
-
-                //TODO !0: ports ? force staging mode with debug ?
-
+                maintainerEmail: setupData.email, // contact for security and critical bug notices
+                packageRoot: __dirname, // where to find .greenlockrc and set default paths
+                configDir: "./var/greenlock.d",
                 cluster: false // whether or not to run at cloudscale
             }
         })

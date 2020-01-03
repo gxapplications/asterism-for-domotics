@@ -1,4 +1,1 @@
-{
-  "manager": "greenlock-manager-fs",
-  "configFile": "./var/greenlock.json"
-}
+{"manager":{"module":"@greenlock/manager"},"configFile":"./var/greenlock.json","configDir":"./var/greenlock.d"}

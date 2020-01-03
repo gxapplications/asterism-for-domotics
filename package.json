@@ -1,17 +1,17 @@
 {
   "name": "asterism-for-domotics",
-  "version": "1.0.14",
+  "version": "1.4.2",
   "description": "Extensible dashboard platform for domotics. Made in NodeJS, React and Materialize CSS.",
-  "author": "Xavier Gouley <gxapplications@gmail.com>",
+  "author": "Xavier Gouley <gxapplications@gmail.com> (asterism.tk)",
   "contributors": [],
   "license": "CC-BY-NC-SA-4.0",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test here\" && exit 1",
     "start": "cross-env NODE_ENV=production node index.js",
-    "setup": "npm install --production --quiet && npm run setup:build && npm run setup:mode && npm run start",
-    "update": "npm update --production --quiet && npm run setup:build && npm run start",
-    "setup:build": "cross-env NODE_ENV=production node setup-build.js",
+    "setup": "npm install --production --quiet && npm run setup:mode && npm run setup:build && npm run start",
+    "update": "npm update --production --quiet && npm run setup:build && pm2 restart asterism",
+    "setup:build": "cross-env NODE_ENV=production node --max-old-space-size=630 setup-build.js",
     "setup:mode": "cross-env NODE_ENV=production node setup-mode.js",
     "gen:cert": "./setup-self-signed-certificates.sh"
   },
@@ -31,32 +31,32 @@
     "domotics"
   ],
   "engines": {
-    "node": ">= 8.11.1",
-    "npm": ">= 6.4.1"
+    "node": ">= 12.12.0",
+    "npm": ">= 6.11.3"
   },
   "dependencies": {
-    "asterism": "^1.1.9",
-    "asterism-plugin-ftt": "^0.1.4",
-    "asterism-plugin-ipcam": "^1.5.1",
-    "asterism-plugin-library": ">= 2.2.33",
-    "asterism-plugin-zwave": "^1.0.11",
-    "babel-core": "6.26.x",
-    "colors": "1.1.x",
-    "cross-env": "^5.x",
+    "@babel/core": "7.11.x",
+    "@babel/register": "7.11.x",
+    "asterism": "^1.10.0",
+    "asterism-plugin-ftt": "^0.3.0",
+    "asterism-plugin-ipcam": "^1.7.0",
+    "asterism-plugin-library": ">= 2.4.2",
+    "asterism-plugin-teleinfo": "^0.6.0",
+    "asterism-plugin-zwave": "^1.4.30",
+    "colors": "1.4.x",
+    "cross-env": "7.x",
     "exec-sh": "0.3.x",
-    "greenlock": "^3.1.5",
-    "greenlock-express": "3.x",
-    "le-acme-core": "2.1.x",
-    "le-challenge-fs": "2.x",
+    "greenlock-express": "4.x",
     "path": "0.12.x",
-    "prompt-sync": "4.1.x",
-    "ursa": "0.9.x"
+    "prompt-sync": "4.2.x",
+    "web-push": "3.4.x"
   },
   "bundledDependencies": [
     "asterism",
     "asterism-plugin-ftt",
     "asterism-plugin-ipcam",
     "asterism-plugin-library",
+    "asterism-plugin-teleinfo",
     "asterism-plugin-zwave"
   ],
   "asterism-plugins": [
@@ -64,6 +64,7 @@
     "asterism/dist/plugins/navigation-tools",
     "asterism-plugin-ftt",
     "asterism-plugin-ipcam",
+    "asterism-plugin-teleinfo",
     "asterism-plugin-zwave"
   ]
 }

@@ -6,10 +6,13 @@
     "192.168.0.0/24",
     "192.168.1.0/24"
   ],
-  "email": "change.me@example.net",
+  "email": "changeme@gmail.com",
   "domains": [
-    "example.net",
-    "www.example.net"
+    "example.tk",
+    "domotics.example.tk"
   ],
-  "mode": 3
+  "webPushPublicKey": null,
+  "webPushPrivateKey": null,
+  "mode": 1,
+  "timezone": "Europe/Paris"
 }
