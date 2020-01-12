@@ -11,12 +11,19 @@ let mode = setup.mode || 1
 let authorizedIps = setup.authorizedIps || ['127.0.0.1', '0.0.0.0', '::1', '192.168.0.0/24', '192.168.1.0/24']
 let email = setup.email || null
 let domains = setup.domains || []
+let webPushPublicKey = setup.webPushPublicKey || null
+let webPushPrivateKey = setup.webPushPrivateKey || null
 
-const writeSetupAndQuit = () => {
+const writeSetupAndQuit = (withWebPush = false) => {
   setup.mode = mode
   setup.authorizedIps = authorizedIps
   setup.email = email
   setup.domains = domains
+  if (withWebPush && webPushPublicKey === null && webPushPrivateKey === null) {
+    setup.webPushPublicKey = 'TODO'
+    setup.webPushPrivateKey = 'TODO'
+    // TODO !0: generate public/private keys
+  }
   fs.writeFile('./setup.json', JSON.stringify(setup, null, 2), 'utf8', () => {
     process.exit(0)
   })
@@ -58,7 +65,7 @@ switch (mode) {
       }
 
       // WRITE SETUP
-      writeSetupAndQuit()
+      writeSetupAndQuit(true)
     })
     break
 
@@ -74,7 +81,6 @@ switch (mode) {
       )
     } while(!(domains.length > 0))
 
-    // TODO !0: to test
     execSh(`npx greenlock defaults --subscriber-email '${email}' --agree-to-terms`, { cwd: './' }, (err2) => {
       if (err2) {
         console.error('ERROR:', err2)
@@ -88,7 +94,7 @@ switch (mode) {
         }
 
         // WRITE SETUP
-        writeSetupAndQuit()
+        writeSetupAndQuit(true)
       })
     })
     break
@@ -97,5 +103,5 @@ switch (mode) {
     // nothing for now...
 
     // WRITE SETUP
-    writeSetupAndQuit()
+    writeSetupAndQuit(false)
 }
