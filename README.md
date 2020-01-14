@@ -31,8 +31,15 @@ _[Development progression / Roadmap available here (asterism and plugins)](https
 
 As this package uses plugins that need specific settings before installation (third part softs prerequisites), you need to complete these steps first of all:
 
+- Download and flash Raspbian Debian Buster minimal image.
+- setup OS, password, locales and expand rootfs partition to have sufficient space. `sudo raspi-config`
+- setup network, IP, activate ssh
+- `sudo apt-get update`
+- `sudo apt-get install git wiringpi`
+- download nodeJS v12: `wget https://nodejs.org/dist/v12.14.1/node-v12.14.1-linux-armv7l.tar.xz`
+- install it: `sudo mkdir -p /usr/local/lib/nodejs` && `sudo tar -xJvf node-v12.14.1-linux-armv7l.tar.xz -C /usr/local/lib/nodejs`
 - [Zwave open-zwave library](https://github.com/gxapplications/asterism-plugin-zwave/blob/master/README.md#asterism-plugin-zwave) (skip if you don't need it)
-
+- 433 library prerequisites
 
 # Quick install guide
 
