@@ -38,6 +38,7 @@ As this package uses plugins that need specific settings before installation (th
 - `sudo apt-get install git wiringpi`
 - download nodeJS v12: `wget https://nodejs.org/dist/v12.14.1/node-v12.14.1-linux-armv7l.tar.xz`
 - install it: `sudo mkdir -p /usr/local/lib/nodejs` && `sudo tar -xJvf node-v12.14.1-linux-armv7l.tar.xz -C /usr/local/lib/nodejs`
+- add to ~/.profile `export PATH=/usr/local/lib/nodejs/node-v12.14.1-linux-armv7l/bin:$PATH`
 - [Zwave open-zwave library](https://github.com/gxapplications/asterism-plugin-zwave/blob/master/README.md#asterism-plugin-zwave) (skip if you don't need it)
 - 433 library prerequisites
 
