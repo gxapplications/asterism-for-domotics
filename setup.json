@@ -6,12 +6,12 @@
     "192.168.0.0/24",
     "192.168.1.0/24"
   ],
-  "email": "changeme@gmail.com",
+  "email": "xavier.gouley@gmail.com",
   "domains": [
-    "example.tk",
-    "www.example.tk"
+    "magellan.tk",
+    "asterism.magellan.tk"
   ],
   "webPushPublicKey": "TODO",
   "webPushPrivateKey": "TODO",
-  "mode": 3
+  "mode": 1
 }

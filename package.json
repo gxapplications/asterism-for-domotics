@@ -11,7 +11,7 @@
     "start": "cross-env NODE_ENV=production node index.js",
     "setup": "npm install --production --quiet && npm run setup:build && npm run setup:mode && npm run start",
     "update": "npm update --production --quiet && npm run setup:build && npm run start",
-    "setup:build": "cross-env NODE_ENV=production node setup-build.js",
+    "setup:build": "cross-env NODE_ENV=production node --max-old-space-size=512 setup-build.js",
     "setup:mode": "cross-env NODE_ENV=production node setup-mode.js",
     "gen:cert": "./setup-self-signed-certificates.sh"
   },
