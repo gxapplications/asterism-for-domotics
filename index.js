@@ -19,6 +19,7 @@ if (setupData.mode > 1) { // Only HTTPS, WebPush notifications
   process.argv.push(`--webPushPublicKey=${setupData.webPushPublicKey}`)
   process.argv.push(`--webPushPrivateKey=${setupData.webPushPrivateKey}`)
   process.argv.push(`--webPushEmail=mailto:${setupData.email}`)
+  process.argv.push(`--webPushServerUrl=${setupData.domains[0]}`)
 }
 
 const server = require('asterism').server
