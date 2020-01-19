@@ -22,25 +22,29 @@ _[Development progression / Roadmap available here (asterism and plugins)](https
 
 ---
 
+
 # Prerequisites
 
 - A private server remaining ON to run the background application (Linux like), reachable in a protected network area only (public version with authentication will come later),
 - One or more clients to display and control the dashboard via a Chrome browser (tablet, computer, mobile phone...).
 - Server part is not compatible with Microsoft Windows OS. Web part is compatible with Google Chrome & Chromium only, >= 71.
 
+## Example to install on Raspberry Pi
+
+- Download and flash Raspbian Debian Buster **minimal** image on a >=8Go SD card.
+- Setup: OS, password, locales, network, IP, activate ssh, and expand rootfs partition to have sufficient space. `sudo raspi-config`
+- Install GIT. `sudo apt-get update && sudo apt-get install git`
+- Download nodeJS v12. `wget https://nodejs.org/dist/v12.14.1/node-v12.14.1-linux-armv7l.tar.xz`
+- Install nodeJS. `sudo mkdir -p /usr/local/lib/nodejs` && `sudo tar -xJvf node-v12.14.1-linux-armv7l.tar.xz -C /usr/local/lib/nodejs`
+- Add this line to ~/.profile: `export PATH=/usr/local/lib/nodejs/node-v12.14.1-linux-armv7l/bin:$PATH`
+
+## Plugins prerequisites
 
 As this package uses plugins that need specific settings before installation (third part softs prerequisites), you need to complete these steps first of all:
+- [Zwave open-zwave library prerequisites](https://github.com/gxapplications/asterism-plugin-zwave/blob/master/README.md#asterism-plugin-zwave) (skip if you don't need it)
+- The new 433MHz library prerequisites (coming soon): `sudo apt-get install wiringpi`
+- When using HTTPS mode, you need to let nodeJS access :80 and :443 ports. `sudo setcap 'cap_net_bind_service=+ep' $(which node)`
 
-- Download and flash Raspbian Debian Buster minimal image.
-- setup OS, password, locales and expand rootfs partition to have sufficient space. `sudo raspi-config`
-- setup network, IP, activate ssh
-- `sudo apt-get update`
-- `sudo apt-get install git wiringpi`
-- download nodeJS v12: `wget https://nodejs.org/dist/v12.14.1/node-v12.14.1-linux-armv7l.tar.xz`
-- install it: `sudo mkdir -p /usr/local/lib/nodejs` && `sudo tar -xJvf node-v12.14.1-linux-armv7l.tar.xz -C /usr/local/lib/nodejs`
-- add to ~/.profile `export PATH=/usr/local/lib/nodejs/node-v12.14.1-linux-armv7l/bin:$PATH`
-- [Zwave open-zwave library](https://github.com/gxapplications/asterism-plugin-zwave/blob/master/README.md#asterism-plugin-zwave) (skip if you don't need it)
-- 433 library prerequisites
 
 # Quick install guide
 
@@ -62,9 +66,7 @@ npm start
 ```
 
 In the last choice case, we use Greenlock to generate SSL certificates, and then we need some extra configuration before to start:
-# TODO !0: les commandes suivantes peuvent etre faites par le setup, puisqu'on a les emails, domaines, etc....
 ```
-sudo setcap 'cap_net_bind_service=+ep' $(which node)
 npm start -- --staging
 ```
 
