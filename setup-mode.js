@@ -5,6 +5,7 @@ require('colors')
 const execSh = require('exec-sh')
 const fs = require('fs')
 const prompt = require('prompt-sync')({ sigint: true })
+const webPush = require('web-push')
 
 const setup = require('./setup.json')
 let mode = setup.mode || 1
@@ -20,9 +21,10 @@ const writeSetupAndQuit = (withWebPush = false) => {
   setup.email = email
   setup.domains = domains
   if (withWebPush && webPushPublicKey === null && webPushPrivateKey === null) {
-    setup.webPushPublicKey = 'TODO'
-    setup.webPushPrivateKey = 'TODO'
-    // TODO !0: generate public/private keys
+    const keys = webPush.generateVAPIDKeys()
+    setup.webPushPublicKey = keys.publicKey
+    setup.webPushPrivateKey = keys.privateKey
+    console.log('Wrote new webPush VAPID keys on your setup conf.'.green)
   }
   fs.writeFile('./setup.json', JSON.stringify(setup, null, 2), 'utf8', () => {
     process.exit(0)

@@ -46,7 +46,8 @@
     "exec-sh": "0.3.x",
     "greenlock-express": "4.x",
     "path": "0.12.x",
-    "prompt-sync": "4.1.x"
+    "prompt-sync": "4.1.x",
+    "web-push": "^3.4.3"
   },
   "bundledDependencies": [
     "asterism",
