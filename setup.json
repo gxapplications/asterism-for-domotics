@@ -6,12 +6,12 @@
     "192.168.0.0/24",
     "192.168.1.0/24"
   ],
-  "email": "changeme@gmail.com",
+  "email": "xavier.gouley@gmail.com",
   "domains": [
-    "example.tk",
-    "www.example.tk"
+    "magellan.tk",
+    "asterism.magellan.tk"
   ],
-  "webPushPublicKey": null,
-  "webPushPrivateKey": null,
+  "webPushPublicKey": "BJvbL2rg66deF0WnxukODY1-lDLazwuj_WZwwq5WQHFq_NhOX8dPwnQMsuj5vOf4vS8uHkY9BcyH4ms2ZHoysEg",
+  "webPushPrivateKey": "OEMMdk-rKEHl0Qd9Wsg0kc61djonLhJRTCKyyZgsVLg",
   "mode": 3
 }
