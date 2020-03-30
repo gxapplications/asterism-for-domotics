@@ -10,7 +10,7 @@
     "test": "echo \"Error: no test here\" && exit 1",
     "start": "cross-env NODE_ENV=production node index.js",
     "setup": "npm install --production --quiet && npm run setup:build && npm run setup:mode && npm run start",
-    "update": "npm update --production --quiet && npm run setup:build && npm run start",
+    "update": "npm update --production --quiet && npm run setup:build && pm2 restart asterism",
     "setup:build": "cross-env NODE_ENV=production node --max-old-space-size=512 setup-build.js",
     "setup:mode": "cross-env NODE_ENV=production node setup-mode.js",
     "gen:cert": "./setup-self-signed-certificates.sh"
@@ -35,10 +35,10 @@
     "npm": ">= 6.11.3"
   },
   "dependencies": {
-    "asterism": "^1.2.7",
+    "asterism": "^1.2.18",
     "asterism-plugin-ftt": "^0.1.7",
     "asterism-plugin-ipcam": "^1.6.0",
-    "asterism-plugin-library": ">= 2.3.0",
+    "asterism-plugin-library": ">= 2.3.4",
     "asterism-plugin-zwave": "^1.1.1",
     "babel-core": "6.26.x",
     "colors": "1.1.x",
