@@ -36,10 +36,10 @@
   },
   "dependencies": {
     "asterism": "^1.3.0",
-    "asterism-plugin-ftt": "^0.1.7",
-    "asterism-plugin-ipcam": "^1.6.0",
+    "asterism-plugin-ftt": "^0.1.8",
+    "asterism-plugin-ipcam": "^1.6.1",
     "asterism-plugin-library": ">= 2.3.4",
-    "asterism-plugin-zwave": "^1.1.2",
+    "asterism-plugin-zwave": "^1.1.3",
     "babel-core": "6.26.x",
     "colors": "1.1.x",
     "cross-env": "^5.x",
