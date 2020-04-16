@@ -9,7 +9,7 @@
   "scripts": {
     "test": "echo \"Error: no test here\" && exit 1",
     "start": "cross-env NODE_ENV=production node index.js",
-    "setup": "npm install --production --quiet && npm run setup:build && npm run setup:mode && npm run start",
+    "setup": "npm install --production --quiet && npm run setup:mode && npm run setup:build && npm run start",
     "update": "npm update --production --quiet && npm run setup:build && pm2 restart asterism",
     "setup:build": "cross-env NODE_ENV=production node --max-old-space-size=512 setup-build.js",
     "setup:mode": "cross-env NODE_ENV=production node setup-mode.js",
