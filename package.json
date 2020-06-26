@@ -40,7 +40,7 @@
     "asterism-plugin-ipcam": "^1.6.1",
     "asterism-plugin-library": ">= 2.3.4",
     "asterism-plugin-teleinfo": "^0.0.1",
-    "asterism-plugin-zwave": "^1.2.0",
+    "asterism-plugin-zwave": "^1.2.1",
     "babel-core": "6.26.x",
     "colors": "1.1.x",
     "cross-env": "^5.x",
