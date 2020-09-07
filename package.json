@@ -1,6 +1,6 @@
 {
   "name": "asterism-for-domotics",
-  "version": "1.2.0",
+  "version": "1.2.11",
   "description": "Extensible dashboard platform for domotics. Made in NodeJS, React and Materialize CSS.",
   "author": "Xavier Gouley <gxapplications@gmail.com> (asterism.tk)",
   "contributors": [],
@@ -11,7 +11,7 @@
     "start": "cross-env NODE_ENV=production node index.js",
     "setup": "npm install --production --quiet && npm run setup:mode && npm run setup:build && npm run start",
     "update": "npm update --production --quiet && npm run setup:build && pm2 restart asterism",
-    "setup:build": "cross-env NODE_ENV=production node --max-old-space-size=512 setup-build.js",
+    "setup:build": "cross-env NODE_ENV=production node --max-old-space-size=630 setup-build.js",
     "setup:mode": "cross-env NODE_ENV=production node setup-mode.js",
     "gen:cert": "./setup-self-signed-certificates.sh"
   },
@@ -35,20 +35,21 @@
     "npm": ">= 6.11.3"
   },
   "dependencies": {
-    "asterism": "^1.4.2",
+    "@babel/core": "7.11.x",
+    "@babel/register": "7.11.x",
+    "asterism": "^1.4.11",
     "asterism-plugin-ftt": "^0.1.8",
     "asterism-plugin-ipcam": "^1.6.1",
     "asterism-plugin-library": ">= 2.3.4",
-    "asterism-plugin-teleinfo": "^0.3.0",
+    "asterism-plugin-teleinfo": "^0.3.10",
     "asterism-plugin-zwave": "^1.2.6",
-    "babel-core": "6.26.x",
     "colors": "1.4.x",
-    "cross-env": "^7.x",
+    "cross-env": "7.x",
     "exec-sh": "0.3.x",
     "greenlock-express": "4.x",
     "path": "0.12.x",
     "prompt-sync": "4.2.x",
-    "web-push": "^3.4.4"
+    "web-push": "3.4.x"
   },
   "bundledDependencies": [
     "asterism",

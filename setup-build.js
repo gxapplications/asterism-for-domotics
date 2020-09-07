@@ -1,7 +1,7 @@
 'use strict'
 
 /* global process */
-require('babel-core/register')
+require('@babel/register')
 require('colors')
 
 const packageData = require('./package.json')
@@ -24,7 +24,7 @@ for (let plugin of plugins) {
   server.use(require(plugin))
 }
 
-browser.pack(server, true, () => {
+browser.pack(server, () => {
   console.log(('Build OK: Webpack files generated').cyan)
   process.exit(0)
 })

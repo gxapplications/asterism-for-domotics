@@ -1,7 +1,7 @@
 'use strict'
 
 /* global process */
-require('babel-core/register')
+require('@babel/register')
 require('colors')
 
 const packageData = require('./package.json')
