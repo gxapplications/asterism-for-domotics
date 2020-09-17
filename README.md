@@ -1,4 +1,4 @@
-![asterism-logo](https://raw.githubusercontent.com/gxapplications/asterism/master/doc/asterism-text.png)
+![asterism-logo](https://raw.githubusercontent.com/gxapplications/asterism/master/docs/asterism-text.png)
 
 ### _asterism-for-domotics_ is a Domotics oriented standalone software, based on _asterism_ framework.
 
@@ -7,16 +7,21 @@ _NOT cloud based (local & private service). Made in NodeJS & Material interface.
 ---
 
 [![release date](https://img.shields.io/github/release-date/gxapplications/asterism-for-domotics.svg)](https://github.com/gxapplications/asterism-for-domotics/releases)
-![node version](https://img.shields.io/badge/node-%3E%3D%208.9.4-pink.svg)
-[![npm package version](https://badge.fury.io/js/asterism-for-domotics.svg?logo=npm)](https://www.npmjs.com/package/asterism-for-domotics)
-[![npm downloads](https://img.shields.io/npm/dt/asterism-for-domotics.svg?logo=npm&label=npm%20downloads)](https://www.npmjs.com/package/asterism-for-domotics)
+![node version](https://img.shields.io/badge/node-%3E%3D%2012.12.0-pink.svg)
 [![github downloads](https://img.shields.io/github/downloads/gxapplications/asterism-for-domotics/total.svg?logo=github&label=github%20downloads)](https://github.com/gxapplications/asterism-for-domotics/releases)
+[![asterism dep version](https://img.shields.io/badge/asterism-1.9-green.svg)](https://www.npmjs.com/package/asterism)
+[![lib dep version](https://img.shields.io/badge/asterism%20plugin%20library-2.4-green.svg)](https://www.npmjs.com/package/asterism-plugin-library)
 
-Plugins versions:
-[![asterism dep version](https://img.shields.io/npm/dependency-version/asterism-for-domotics/asterism.svg)](https://www.npmjs.com/package/asterism)
-[![lib dep version](https://img.shields.io/npm/dependency-version/asterism-for-domotics/asterism-plugin-library.svg)](https://www.npmjs.com/package/asterism-plugin-library)
-[![asterism-plugin-zwave dep version](https://img.shields.io/npm/dependency-version/asterism-for-domotics/asterism-plugin-zwave.svg)](https://www.npmjs.com/package/asterism-plugin-zwave)
-[![asterism-plugin-ipcam dep version](https://img.shields.io/npm/dependency-version/asterism-for-domotics/asterism-plugin-ipcam.svg)](https://www.npmjs.com/package/asterism-plugin-ipcam)
+Available plugins:
+
+[![asterism-plugin-zwave dep version](https://img.shields.io/badge/asterism%20plugin%20zwave-1.2-green.svg)](https://www.npmjs.com/package/asterism-plugin-zwave)
+
+[![asterism-plugin-ipcam dep version](https://img.shields.io/badge/asterism%20plugin%20ipcam-1.6-green.svg)](https://www.npmjs.com/package/asterism-plugin-ipcam)
+
+[![asterism-plugin-teleinfo dep version](https://img.shields.io/badge/asterism%20plugin%20teleinfo-0.3-orange.svg)](https://www.npmjs.com/package/asterism-plugin-teleinfo)
+
+[![asterism-plugin-ftt dep version](https://img.shields.io/badge/asterism%20plugin%20ftt-0.1-orange.svg)](https://www.npmjs.com/package/asterism-plugin-ftt)
+
 
 _[Development progression / Roadmap available here (asterism and plugins)](https://github.com/users/gxapplications/projects/1)_
 
@@ -41,9 +46,9 @@ _[Development progression / Roadmap available here (asterism and plugins)](https
 ## Plugins prerequisites
 
 As this package uses plugins that need specific settings before installation (third part softs prerequisites), you need to complete these steps first of all:
-- [Zwave open-zwave library prerequisites](https://github.com/gxapplications/asterism-plugin-zwave/blob/master/README.md#asterism-plugin-zwave) (skip if you don't need it)
-- The new 433MHz library prerequisites (coming soon): `sudo apt-get install wiringpi`
-- When using HTTPS mode, you need to let nodeJS access :80 and :443 ports. `sudo setcap 'cap_net_bind_service=+ep' $(which node)`
+- [Zwave open-zwave library prerequisites](https://github.com/gxapplications/asterism-plugin-zwave/blob/master/README.md#asterism-plugin-zwave)
+- The new 433MHz (ftt) library prerequisites: `sudo apt-get install wiringpi`
+- When using HTTPS mode, you need to let nodeJS access :80 and :443 ports: `sudo setcap 'cap_net_bind_service=+ep' $(which node)`
 
 
 # Quick install guide
@@ -56,7 +61,7 @@ This will clone the project. You can modify your settings (used plugins) in the 
 ```
 npm run setup
 ```
-This will install without development/test dependencies (will use less disk space). This will install more than 1100 dependencies in about 5 to 15 minutes.
+This will install without development/test dependencies (will use less disk space). This will install a lot of dependencies in about 5 to 15 minutes.
 A build is done just after (using webpack) to compile asterism and selected plugins (can take several minutes).
 And then a choice can be made: either to use local HTTP / local self signed HTTPS / full public HTTPS with your own domain name.
 
@@ -144,8 +149,5 @@ Allow a Raspberry Pi to use port 80 (without sudo at startup)
 sudo setcap 'cap_net_bind_service=+ep' $(which node)
 ```
 
-# Project under beta testing development
-_asterism_ is for now in public testing stage, for 2019. You are welcome to use it and test it.
-Stable release is scheduled for 2020.
 
-:copyright: 2017-2019 GXApplications. [ [Roadmap/Milestones](https://github.com/gxapplications/asterism/milestones?direction=asc&sort=due_date&state=open) | [License](https://github.com/gxapplications/asterism-for-domotics/blob/master/LICENSE.md) ]
+:copyright: 2017-2020 GXApplications. [ [Roadmap/Milestones](https://github.com/gxapplications/asterism/milestones?direction=asc&sort=due_date&state=open) | [License](https://github.com/gxapplications/asterism-for-domotics/blob/master/LICENSE.md) ]
