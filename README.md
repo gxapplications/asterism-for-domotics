@@ -38,6 +38,7 @@ _[Development progression / Roadmap available here (asterism and plugins)](https
 
 - Download and flash Raspbian Debian Buster **minimal** image on a >=8Go SD card.
 - Setup: OS, password, locales, network, IP, activate ssh, and expand rootfs partition to have sufficient space. `sudo raspi-config`
+- Setup your timezone (very important, and please note it down). `tzselect`
 - Install GIT. `sudo apt-get update && sudo apt-get install git`
 - Download nodeJS v12. `wget https://nodejs.org/dist/v12.14.1/node-v12.14.1-linux-armv7l.tar.xz`
 - Install nodeJS. `sudo mkdir -p /usr/local/lib/nodejs` && `sudo tar -xJvf node-v12.14.1-linux-armv7l.tar.xz -C /usr/local/lib/nodejs`

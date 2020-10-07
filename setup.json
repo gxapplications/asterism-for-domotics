@@ -13,5 +13,6 @@
   ],
   "webPushPublicKey": null,
   "webPushPrivateKey": null,
-  "mode": 1
+  "mode": 1,
+  "timezone": "Europe/Paris"
 }

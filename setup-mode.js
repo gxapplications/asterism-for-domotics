@@ -14,6 +14,7 @@ let email = setup.email || null
 let domains = setup.domains || []
 let webPushPublicKey = setup.webPushPublicKey || null
 let webPushPrivateKey = setup.webPushPrivateKey || null
+let timezone = setup.timezone || 'Europe/Paris'
 
 const writeSetupAndQuit = (withWebPush = false) => {
   setup.mode = mode
@@ -30,6 +31,11 @@ const writeSetupAndQuit = (withWebPush = false) => {
     process.exit(0)
   })
 }
+
+// TIMEZONE
+do {
+  timezone = prompt(`Please enter your timezone [default ${setup.timezone || 'Europe/Paris'}]: `, setup.timezone)
+} while(!(timezone.length > 0))
 
 // MODE
 console.log('Now, you must choose a way to execute asterism.'.yellow)
