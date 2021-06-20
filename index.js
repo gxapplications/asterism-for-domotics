@@ -46,6 +46,7 @@ server.start(
 // Linux graceful stop
 process.on('SIGINT', function () {
   try {
+    console.warn('SIGINT signal received.')
     server.stop(() => { process.exit(0) }, 'Stop required by system.')
   } catch (error) {
     console.error(error)
@@ -57,6 +58,7 @@ process.on('SIGINT', function () {
 process.on('message', function(msg) {
   if (msg == 'shutdown') {
     try {
+      console.warn('Shutdown signal received.')
       server.stop(() => { process.exit(0) }, 'Stop required by system.')
     } catch (error) {
       console.error(error)
