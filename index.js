@@ -53,6 +53,15 @@ process.on('SIGINT', function () {
     process.exit(1)
   }
 })
+process.on('SIGTERM', function () {
+  try {
+    console.warn('SIGTERM signal received.')
+    server.stop(() => { process.exit(0) }, 'Stop required by system.')
+  } catch (error) {
+    console.error(error)
+    process.exit(1)
+  }
+})
 
 // Windows graceful stop
 process.on('message', function(msg) {
