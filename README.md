@@ -151,4 +151,4 @@ sudo setcap 'cap_net_bind_service=+ep' $(which node)
 ```
 
 
-:copyright: 2017-2020 GXApplications. [ [Roadmap/Milestones](https://github.com/gxapplications/asterism/milestones?direction=asc&sort=due_date&state=open) | [License](https://github.com/gxapplications/asterism-for-domotics/blob/master/LICENSE.md) ]
+:copyright: 2017-2022 GXApplications. [ [Roadmap/Milestones](https://github.com/gxapplications/asterism/milestones?direction=asc&sort=due_date&state=open) | [License](https://github.com/gxapplications/asterism-for-domotics/blob/master/LICENSE.md) ]
