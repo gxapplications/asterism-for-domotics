@@ -6,21 +6,18 @@ _NOT cloud based (local & private service). Made in NodeJS & Material interface.
 
 ---
 
-[![release date](https://img.shields.io/github/release-date/gxapplications/asterism-for-domotics.svg)](https://github.com/gxapplications/asterism-for-domotics/releases)
 ![node version](https://img.shields.io/badge/node-%3E%3D%2012.12.0-pink.svg)
 [![github downloads](https://img.shields.io/github/downloads/gxapplications/asterism-for-domotics/total.svg?logo=github&label=github%20downloads)](https://github.com/gxapplications/asterism-for-domotics/releases)
-[![asterism dep version](https://img.shields.io/badge/asterism-1.9-green.svg)](https://www.npmjs.com/package/asterism)
+[![asterism dep version](https://img.shields.io/badge/asterism-1.10-green.svg)](https://www.npmjs.com/package/asterism)
 [![lib dep version](https://img.shields.io/badge/asterism%20plugin%20library-2.4-green.svg)](https://www.npmjs.com/package/asterism-plugin-library)
 
 Available plugins:
 
-[![asterism-plugin-zwave dep version](https://img.shields.io/badge/asterism%20plugin%20zwave-1.2-green.svg)](https://www.npmjs.com/package/asterism-plugin-zwave)
+[![asterism-plugin-zwave dep version](https://img.shields.io/badge/asterism%20plugin%20zwave-1.6-green.svg)](https://www.npmjs.com/package/asterism-plugin-zwave)
 
-[![asterism-plugin-ipcam dep version](https://img.shields.io/badge/asterism%20plugin%20ipcam-1.6-green.svg)](https://www.npmjs.com/package/asterism-plugin-ipcam)
+[![asterism-plugin-ipcam dep version](https://img.shields.io/badge/asterism%20plugin%20ipcam-1.7-green.svg)](https://www.npmjs.com/package/asterism-plugin-ipcam)
 
-[![asterism-plugin-teleinfo dep version](https://img.shields.io/badge/asterism%20plugin%20teleinfo-0.3-orange.svg)](https://www.npmjs.com/package/asterism-plugin-teleinfo)
-
-[![asterism-plugin-ftt dep version](https://img.shields.io/badge/asterism%20plugin%20ftt-0.1-orange.svg)](https://www.npmjs.com/package/asterism-plugin-ftt)
+[![asterism-plugin-ftt dep version](https://img.shields.io/badge/asterism%20plugin%20ftt-0.3-orange.svg)](https://www.npmjs.com/package/asterism-plugin-ftt)
 
 
 _[Development progression / Roadmap available here (asterism and plugins)](https://github.com/users/gxapplications/projects/1)_
