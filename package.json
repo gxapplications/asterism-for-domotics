@@ -11,7 +11,8 @@
     "start": "cross-env NODE_ENV=production node index.js",
     "setup": "npm install --production --quiet && npm run setup:mode && npm run setup:build && npm run start",
     "update": "npm update --production --quiet && npm run setup:build && pm2 restart asterism",
-    "setup:build": "cross-env NODE_ENV=production node --max-old-space-size=630 setup-build.js",
+    "setup:build": "cross-env NODE_ENV=production node --max-old-space-size=2048 setup-build.js",
+    "setup:build2": "cross-env NODE_ENV=production node --max-old-space-size=630 setup-build.js",
     "setup:mode": "cross-env NODE_ENV=production node setup-mode.js",
     "gen:cert": "./setup-self-signed-certificates.sh"
   },
@@ -38,8 +39,6 @@
     "@babel/core": "7.11.x",
     "@babel/register": "7.11.x",
     "asterism": "^1.10.26",
-    "asterism-plugin-ftt": "^0.3.0",
-    "asterism-plugin-ipcam": "^1.7.0",
     "asterism-plugin-library": ">= 2.4.6",
     "asterism-plugin-zwave": "^1.6.1",
     "colors": "1.4.x",
@@ -52,16 +51,12 @@
   },
   "bundledDependencies": [
     "asterism",
-    "asterism-plugin-ftt",
-    "asterism-plugin-ipcam",
     "asterism-plugin-library",
     "asterism-plugin-zwave"
   ],
   "asterism-plugins": [
     "asterism/dist/plugins/scenarii",
     "asterism/dist/plugins/navigation-tools",
-    "asterism-plugin-ftt",
-    "asterism-plugin-ipcam",
     "asterism-plugin-zwave"
   ]
 }
