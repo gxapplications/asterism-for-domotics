@@ -1,6 +1,6 @@
 {
   "name": "asterism-for-domotics",
-  "version": "1.4.8",
+  "version": "1.4.9",
   "description": "Extensible dashboard platform for domotics. Made in NodeJS, React and Materialize CSS.",
   "author": "Xavier Gouley <gxapplications@gmail.com> (asterism.icu)",
   "contributors": [],
