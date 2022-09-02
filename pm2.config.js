@@ -14,11 +14,11 @@ module.exports = {
       kill_timeout       : 10000,
       wait_ready         : true,
       listen_timeout     : 60000,
-      cron_restart       : '42 2 1 * *', // every first day of themonth, 2:42AM
-      min_uptime         : 45000, // if crashes before 45sec of uptime, then will retry <max_restarts> times max.
-      max_restarts       : 20,
-      max_memory_restart : "1300M", // if uses more than 1300MB, consider it's a bug. Crash the instance and retry.
-      restart_delay      : 3000, // Wait 3 sec before to restart after a crash
+      cron_restart       : '42 2 * * 1', // every monday, 2:42AM
+      min_uptime         : 30000, // if crashes before 30sec of uptime, then will retry <max_restarts> times max.
+      max_restarts       : 10,
+      max_memory_restart : "2000M", // if uses more than 2000MB, consider it's a bug. Crash the instance and retry.
+      restart_delay      : 2000, // Wait 2 sec before to restart after a crash
       autorestart        : true,
       post_update        : ["npm run update"]
     }
